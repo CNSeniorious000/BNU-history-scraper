@@ -43,9 +43,27 @@
             margin-top: 0.2em;
         }
 
+        #back {
+            color: firebrick;
+            background-color: transparent;
+            border: firebrick solid 2pt;
+            border-radius: 3pt;
+            font-family: sans-serif;
+            font-size: 1.2em;
+            padding: 0.4em;
+            transition: all 100ms;
+        }
+
+        #back:hover, #back:focus {
+            color: white;
+            background-color: firebrick;
+        }
+
     </style>
 </head>
 <body>
+
+<button id="back" onclick="window.history.back()">返回</button>
 
 <h1> {{ title }} </h1>
 
