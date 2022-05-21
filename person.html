@@ -50,7 +50,7 @@
 <h1> {{ title }} </h1>
 
 <div>
-
+    {% autoescape off %}
     {% for subtitle, paragraphs in person.items() %}
         <h2> {{ subtitle }} </h2>
         {% if paragraphs.__class__.__name__ == "dict" %}
@@ -75,7 +75,7 @@
             {% endfor %}
         {% endif %}
     {% endfor %}
-
+    {% endautoescape %}
 </div>
 
 </body>

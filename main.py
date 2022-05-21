@@ -12,7 +12,10 @@ except FileNotFoundError:
 
 def to_json(name):
     person = people[name]
-    result = {"简介": person.introduction, "相关人物": person.relevant_person}
+    result = {"简介": person.introduction,
+              "相关人物": [
+                  f'<a href="/person/{i}">{i}</a>'
+                  for i in person.relevant_person]}
     if person.apartments:
         result["相关机构"] = person.apartments
     if person.subjects:
