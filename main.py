@@ -21,13 +21,33 @@ def to_json(name):
     return result
 
 
+templates = Jinja2Templates(".")
+
+
+@app.get("/person/{name}.html")
 @app.get("/person/{name}")
 def personal_page(request: Request, name: str):
-    return Jinja2Templates(".").TemplateResponse(
-        "template.html",
+    return templates.TemplateResponse(
+        "person.html",
         {
             "request": request,
             "title": name,
             "person": to_json(name)
+        }
+    )
+
+
+@app.get("/")
+def get_all_nodes():
+    return list(people)
+
+
+@app.get("/index.html")
+def index_page(request: Request):
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "people": get_all_nodes()
         }
     )

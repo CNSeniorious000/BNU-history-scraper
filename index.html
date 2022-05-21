@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>BNU History index page</title>
+    <style>
+        body {
+            margin: 5%;
+            line-height: 1.5em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+{% for person in people %}
+    <a href="/person/{{ person }}"> {{ person }} </a><br>
+{% endfor %}
+</body>
+</html>
