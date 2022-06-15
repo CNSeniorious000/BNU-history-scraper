@@ -27,8 +27,8 @@ def to_json(name):
 templates = Jinja2Templates(".")
 
 
-@app.get("/person/{name}.html")
 @app.get("/person/{name}")
+@app.get("/person/{name}.html")
 def personal_page(request: Request, name: str):
     return templates.TemplateResponse(
         "person.html",
