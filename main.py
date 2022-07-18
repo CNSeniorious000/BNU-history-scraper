@@ -1,8 +1,11 @@
 from fastapi import FastAPI, Request
+from brotli_asgi import BrotliMiddleware
 from core.people import load, get_all_data
 from starlette.templating import Jinja2Templates
 
 app = FastAPI()
+
+app.add_middleware(BrotliMiddleware, quality=11, minimum_size=256)
 
 try:
     people = load(open("people.pkl", "rb"))
